@@ -9,7 +9,7 @@ jobs:
     runs-on: ubuntu-22.04
     steps:
       - name: Add Issue to Project
-        uses: actions/add-to-project@v0.3
+        uses: actions/add-to-project@v0.3.0
         with:
           project-url: https://github.com/orgs/ElementX-Network/projects/1
           github-token: ${{ secrets.ISSUE_TRACKER }}
