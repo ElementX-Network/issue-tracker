@@ -4,19 +4,12 @@ on:
     types:
       - opened
 
-env:
-  GITHUB_TOKEN: ${{ secrets.ISSUE_TRACKER }}
-  PROJECT_OWNER: ElementX-Network # Project の所有者名
-  PROJECT_NUMBER: 1               # Project 番号
-
 jobs:
   manage_project:
     runs-on: ubuntu-22.04
     steps:
-    - name: Add Issue to Project
-      uses: monry/actions-add-issue-to-project@v1
-      with:
-        github-token: ${{ env.GITHUB_TOKEN }}
-        project-owner: ${{ env.PROJECT_OWNER }}
-        project-number: ${{ env.PROJECT_NUMBER }}
-        issue-id: ${{ github.event.issue.node_id }}
+      - name: Add Issue to Project
+        uses: actions/add-to-project@0.3
+        with:
+          project-url: https://github.com/orgs/ElementX-Network/projects/1
+          github-token: ${{ secrets.ISSUE_TRACKER }}
